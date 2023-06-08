@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Neighbours FHell</title>
+    </head>
+    <body>
+        <video id="angryNeighborAu" class="hide" src="./audio/angryNeighborAu.mp4"></video>
+        <video id="walkAu" class="hide" src="./audio/walkAu.mp4"></video>
+        <video id="paintingAu" class="hide" src="./audio/paintingAu.mp4"></video>
+        <video id="afterPaintingAu" class="hide" src="./audio/afterPaintingAu.mp4"></video>
+        <video id="doorAu" class="hide" src="./audio/doorAu.mp4"></video>
+        <video id="closeDoorAu" class="hide" src="./audio/closeDoorAu.mp4"></video>
+        <video id="viwers" class="hide" src="./audio/viwers.mp4"></video>
+        <audio src="audio/start-menu.mp3" id="auStarting"></audio>
+        <audio src="audio/start-the-game.mp3" id="auStartGame"></audio>
+        <audio src="audio/tagh.mp3" id="auTagh"></audio>
+        <audio src="audio/walkNeighborAu.mp4" id="walkNeighborAu"></audio>
+        <div id="gameScene">
+            <div id="launching-game">
+                <img src="images/starting-game-3.png" id="launchImg1" class="z-index-more">
+                <img src="images/starting-game-2.png" id="launchImg2" class="z-index-more">
+                <img src="images/starting-game-1.png" id="launchImg3" class="z-index-more">
+            </div>
+            <div id="gamePlay" class="hide">
+                    <img src="images/header.png" id="header">
+                    <div id="angle" class="angle1"></div>
+                    <p id="PleasWait" class="hide">Pleas Wait!</p>
+                    <p id="PleasDoing">Pleas Do Step By Step!</p>
+                    <img src="./images/door-Unlock.png" class="pointer" onclick="goToDoor(1)" id="doorUnlock1" >
+                    <img src="./images/door-Unlock.png" class="pointer" onclick="goToDoor(3)" id="doorUnlock2" >
+                    <img src="./images/door-Unlock.png" class="pointer" onclick="goToDoor(4)" id="doorUnlock3" >
+                    <img src="./images/door-Unlock.png" class="pointer" onclick="goToDoor(2)" id="doorUnlock4" >
+                    <img src="./images/Comod.png" class="pointer" id="Comod">
+                    <img src="./images/Goldan.png" class="pointer" id="Goldan">
+                    <img src="./images/grandma-tablo.png" class="pointer grandma" id="grandma">
+                    <img src="./images/grandma-tablo-painted.png" class="pointer grandma" id="grandmaP">
+                    <div id="player">
+                        <div class="show" id="char"></div>
+                    </div>
+                    <img src="./images/neighbor-char-left.png" width="65" id="neighbor" class="neighbor1">
+                    <img src="images/footer.png" id="footer">
+                    <img src="images/rage.png" id="rage" class="hide">
+                    
+                    <ul id="material">
+                        <li id="marbles" onclick="addClass(marbles)" class="hide pointer"></li>
+                        <li id="marker" onclick="addClass(marker)" class="hide pointer"></li>
+                    </ul>
+            </div>
+            <img src="./images/win.png" alt="" width="90%" class="hide" id="win">
+            <div id="startMenu" class="hide">
+                <img src="images/start-menu.png">
+                <img src="images/start-btn.png" onmouseover="tagh()" id="startBtn">
+            </div>
+            <div id="firstMenu" class="hide">
+                <img src="images/first-menu.png" >
+                <img src="images/start-game.png" onmouseover="tagh()" id="startGame">
+                <img src="images/credits.png" onmouseover="tagh()">
+                <img src="images/options.png" onmouseover="tagh()">
+                <img src="images/quit-game.png" onmouseover="tagh()" id="quitGame">
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

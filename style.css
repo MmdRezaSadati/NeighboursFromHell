@@ -1,0 +1,389 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {background-color: #000;}
+@keyframes topBottom{
+    0%{
+        transform: translate(0, -15px);
+    }
+    100%{
+        transform: translate(0, 5px);
+    }
+}
+@keyframes moveNeighbor1{
+    0%{
+        transform: translate(70px , 0);
+    }
+    100%{
+        transform: translate(-100px ,0);
+    }
+}
+@keyframes player{
+    99%,0%{
+        display: none;
+    }
+    100%{
+        display: block;
+    }
+}
+@keyframes moveNeighbor2{
+    0%{
+        opacity: 0; 
+        transform: translate(-220px, 0);
+    }
+    30%{
+        opacity: 1; 
+        transform: translate(-220px, 0);
+    }
+    50%,100%{
+        transform: translate(-300px ,0);
+    }
+}
+@keyframes moveNeighbor3{
+    0%{
+        opacity: 0; 
+        transform: translate(-220px, 0);
+    }
+    40%{
+        opacity: 1; 
+        transform: translate(-220px, 0);
+    }
+    45% , 50%{
+        transform: translate(-300px ,0);
+    }
+    55%{
+        transform: translate(-300px ,0) rotate(45deg);
+    }
+    100%,60%{
+        transform: translate(-300px ,0) rotate(0deg);
+    }
+}
+@keyframes angryNeighbor{
+    0%{
+        transform: translate(70px , 0);
+    }
+    90%{
+        opacity: 1; 
+        transform: translate(-106px, 0);
+    }
+    100%{
+        opacity: 0; 
+        transform: translate(-106px, 0);
+    }
+}
+@keyframes movePlayer5{
+    0%{
+        transform: translate(0px , 0);
+    }
+    50%{
+        transform: translate(-200px ,-50px) rotate(50deg);
+    }
+    100%{
+        transform: translate(-250px ,0) rotate(120deg);
+    }
+}
+@keyframes PleasDoing{
+    10%,0%{
+        display: block;
+        opacity: 1;
+    }
+    13%,100%{
+        display: none;
+        opacity: 0;
+    }
+
+}
+#PleasDoing{
+    animation: PleasDoing 40s infinite linear;
+    position: relative;
+    z-index: 100;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 900;
+    color: #fff;
+    margin: 237px auto;
+}
+.pointer{
+    cursor: pointer;
+}
+#gameScene {
+    width: 900px;
+    height: 550px;
+    position: relative;
+    margin: 30px auto;
+    overflow: hidden;
+}
+#launching-game {
+    width: 100%;
+    height: 100%;
+}
+#launching-game > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#launching-game > img:first-child {cursor: pointer;}
+#firstMenu {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+#firstMenu > img:first-child {
+    width: 100%;
+    height: 100%;
+}
+#firstMenu > img:nth-child(2) , #firstMenu > img:nth-child(3) ,
+#firstMenu > img:nth-child(4) , #firstMenu > img:nth-child(5) {
+    position: absolute;
+    top: 47.8%;
+    left: 31%;
+    width: 41.5%;
+    height: 45px;
+    cursor: pointer;
+}
+#firstMenu > img:nth-child(2):hover , #firstMenu > img:nth-child(3):hover ,
+#firstMenu > img:nth-child(4):hover , #firstMenu > img:nth-child(5):hover {filter: brightness(120%);}
+#firstMenu > img:nth-child(3) {top: 57%;}
+#firstMenu > img:nth-child(4) {top: 66%;}
+#firstMenu > img:nth-child(5) {top: 75.5%;}
+#startMenu {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+#startMenu > img:first-child {
+    width: 100%;
+    height: 100%;
+}
+#startMenu > img:nth-child(2) {
+    width: 66px;
+    height: 59px;
+    position: absolute;
+    right: 3%;
+    bottom: 1.6%;
+    cursor: pointer;
+}
+#startMenu > img:nth-child(2):hover {filter: brightness(120%);}
+#gamePlay {
+    background: url(images/game-bg.png) no-repeat 70% 25%;
+    background-size: 110%;
+    transform: scaleY(90%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: .5s;
+}#header {
+    width: 100%;
+    position: absolute;
+    top: -3%;
+    z-index: 10;
+}
+#footer {
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+}
+#rage {
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+}
+#player {
+    position: absolute;
+    left: 55%;
+    bottom: 20%;
+    transition: .5s linear;
+}
+#char{
+    width: 65px;
+    height: 115px;
+    background: url("./images/char-right.png")no-repeat;
+}
+#char.walk{
+    background: url("./walk-char.gif")no-repeat;
+}
+.painting{
+    position: absolute;
+    top: 20% !important;
+    left: 37% !important;
+}
+.painting > div{
+    width: 1280px !important;
+    height: 720px !important;
+    transform: scale(0.155) !important;
+    position: relative;
+    top: -94%;
+    left: -45%;
+    background: url(./Painting.gif)no-repeat !important;
+}
+#player.player1 {
+    left: 28%;
+    display: none;
+    top: 20%;
+}
+#player.player2 {
+    left: 15%;
+    display: none;
+    bottom: 20%;
+}
+#player.player3 {
+    left: 75%;
+    top: 20%;
+    display: none;
+}
+#player.player4 {
+    left: 85%;
+    display: none;
+    bottom: 20%;
+}
+#char.player5 {
+    animation: movePlayer5 3s linear;
+}
+#char.charLeft {
+    transform: scaleX(1);
+
+}
+#char.charRight {
+    transform: scaleX(-1);
+}
+#neighbor{
+    position: absolute;
+    left: 73%;
+    bottom: 58%;
+}
+.neighbor1{
+    position: absolute;
+    left: 73%;
+    bottom: 58%;
+    animation: moveNeighbor1 4s infinite alternate linear;
+}
+.angryNeighbor{
+    position: absolute;
+    left: 73%;
+    bottom: 58%;
+    animation: angryNeighbor 2s linear;
+}
+.neighbor2{
+    position: absolute;
+    left: 73%;
+    bottom: 58%;
+    animation: moveNeighbor2 3s linear;
+}
+.neighbor3{
+    position: absolute;
+    left: 73%;
+    bottom: 58%;
+    animation: moveNeighbor3 3s linear;
+}
+#Comod{
+    position: absolute;
+    left: 68%;
+    bottom: 24%;
+    width: 85px;
+}
+#doorUnlock1{
+    height: 104px;
+    position: absolute;
+    left: 15%;
+    bottom: 26.2%;
+    width: 81px;
+}
+#doorUnlock2{
+    height: 104px;
+    position: absolute;
+    right: 8%;
+    bottom: 26.2%;
+    width: 81px;
+}
+#doorUnlock3{
+    height: 104px;
+    position: absolute;
+    right: 17%;
+    top: 15.2%;
+    width: 81px;
+}
+#doorUnlock4{
+    height: 104px;
+    position: absolute;
+    left: 26%;
+    top: 15.2%;
+    width: 81px;
+}
+#Goldan{
+    position: absolute;
+    left: 28%;
+    bottom: 23.2%;
+    width: 73px;
+}
+.grandma{
+    position: absolute;
+    left: 37.3%;
+    top: 15.7%;
+    width: 58px;
+    height: 66px;
+}
+#grandmaP{
+    display: none;
+}
+#angle{
+    width: 40px;
+    background: url("./images/angle.png") no-repeat;
+    background-size: contain;
+    height: 60px;
+    position: absolute;
+    animation: topBottom 1s infinite alternate linear;
+}
+.angle1{
+    left: 31%;
+    bottom: 38%;
+}
+
+.angle2{
+    left: 71%;
+    bottom: 34%;
+}
+
+.angle3{
+    left: 44%;
+    top: 15%;
+    rotate: 90deg;
+}
+#PleasWait{
+    position: absolute;
+    right: 23%;
+    color: #fff;
+    bottom: 47%;
+}
+#material{
+    position: absolute;
+    display: flex;
+    bottom: 2%;
+    z-index: 15;
+    gap: 15px;
+    left: 21%;
+}
+.shadow{
+    filter: drop-shadow(0 0 10px #9dff00d0);
+}
+#material > li{
+    width: 70px;
+    height: 50px;
+    background-size: contain;
+}
+#marbles{
+    background: url("./images/marbles.png")no-repeat;
+}
+#marker{
+    background: url("./images/marker.png")no-repeat;
+}
+
+.z-index-more {z-index: 10;}
+.hide {display: none !important;}
+.show {display: block !important;}
